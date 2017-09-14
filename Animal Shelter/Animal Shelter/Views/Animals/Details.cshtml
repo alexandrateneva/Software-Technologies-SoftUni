@@ -1,0 +1,31 @@
+﻿@model Animal_Shelter.Models.Animal
+
+@{ 
+    ViewBag.Title = "Details";
+}
+
+<div class="row mt-60">
+    <div class="col-md-4" style="text-align:center">
+        <h2>@Model.Name</h2>
+        <a href="@Model.ImageUrl" class="img-responsive"><img src="@Model.ImageUrl" class="img-responsive" width="600px"/></a>
+    </div>
+    <div class="col-md-8 mt-60">
+        <ul>
+            <li class="lead">Gender: @Model.Gender</li>
+            <li class="lead">Age: @Model.Age</li>
+            <li class="lead">Weight: @Model.Weight kg</li>
+            <li class="lead">Height: @Model.Height m</li>
+            @if (Model.Breed != null)
+            {
+                <li class="lead">Breed: @Model.Breed</li>
+            }
+            @if (Model.AdditionalInformation != null)
+            {
+                <li class="lead">Additional Information: @Model.AdditionalInformation</li>
+            }
+        </ul>
+    </div>
+    <p>@Html.ActionLink("Back", "Browse", new { category = Model.Category.Name }, new { @class = "btn btn-default"})</p>
+</div>
+      
+        

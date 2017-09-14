@@ -1,0 +1,17 @@
+﻿@model Animal_Shelter.Models.Category
+
+@{
+    ViewBag.Title = "Browse";
+}
+
+<h2 style="text-align:center">Category @Model.Name</h2>
+
+@foreach (var animal in Model.Animals)
+{
+    <div class="col-md-4" style="text-align:center">
+        <h3>@Html.ActionLink(animal.Name, "Details", new { id = animal.AnimalId })</h3>
+        <a href="/Animals/Details/@animal.AnimalId"><img src="@animal.ImageUrl" class="img-responsive" /></a>
+        <br />
+        <p><a class="btn btn-default" href="/Animals/Details/@animal.AnimalId">See more</a></p>
+    </div>
+}

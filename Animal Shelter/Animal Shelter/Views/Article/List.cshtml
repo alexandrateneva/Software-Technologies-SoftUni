@@ -1,0 +1,33 @@
+﻿@model List<Animal_Shelter.Models.Article>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="container">
+    <div class="row">
+        <p style="text-align:center">@Html.ActionLink("Create Article", "Create", "Article", new { @class = "btn btn-default" })</p>
+
+        @foreach (var article in Model)
+        {
+            <div class="col-sm-6">
+                <article>
+                    <header>
+                        <h2>
+                            @Html.ActionLink(@article.Title, "Details", "Article", new { @id = article.Id }, null)
+                        </h2>
+                    </header>
+                    <p>
+                        @article.Content
+                    </p>
+                    <footer class="pull-right">
+                        <small class="author">
+                            --author @article.Author.FullName
+                        </small>
+                    </footer>
+                </article>
+            </div>
+        }
+    </div>
+</div>
+<hr />
